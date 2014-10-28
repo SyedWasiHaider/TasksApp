@@ -1,0 +1,59 @@
+
+	<div style="color:white" align="center">  Events at UW   </div>
+
+
+
+<div align="center"> <small style="font-size:8px">{{last_updated}} </small><div id ="swhaider_refresh" class= "btn btn-default btn-sm glyphicon glyphicon-refresh"></div></div>
+
+
+
+<div class="center-block" id= 'swhaider_tasksuggest_div' style='height:270px; max-width: 100%;
+    overflow-x: hidden;'>	
+
+
+	{{#data}} 
+	{{#show_event}}
+	 <div id="swhaider_taskItem_div" style='color: white; decoration:none;' class='well row'>  
+
+	 	<div id="swhaider_suggestitem_title" class="col-xs-10">{{title}}
+	 	</div>
+	 	<div id='swhaider_suggestadd'    class='col-xs-2'> <a  style = "cursor: pointer; cursor: hand; " class='glyphicon-heart btn btn-default glyphicon'  >  </a>  
+    		</div> 
+		<div style= "display: none; word-wrap:break-word; color:white;"  id = "swhaider_startime">
+		{{#times}}
+
+ 		{{start}}  
+
+ 		{{/times}}
+
+
+ 		</div>
+
+
+ 		<div style= "margin: 10px "class="row">
+ 			<div class="label label-warning">
+ 			{{event_date}}
+ 			</div>
+ 			
+ 			<div class="label label-info">
+ 			{{event_time}}
+ 			</div>
+ 		</div>
+
+ 		<div style= "word-wrap:break-word; color:white;" id = "swhaider_suggestlocation">
+		{{site_name}} , University of Waterloo
+ 		</div>
+
+ 		 <a id ="swhaider_details_link" href="{{link}}" > Details</a> 
+ 		
+
+
+ 		 	
+
+ 	</div>
+ 	{{/show_event}} 
+ 	
+ 	{{/data}} 
+
+
+ </div>

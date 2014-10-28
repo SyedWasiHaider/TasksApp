@@ -1,0 +1,23 @@
+
+Here are your A4 marks and related comments.  There is no straight-forward 
+way to calculate the final mark based on the interim marks.  Proposal is out of 25.
+Challenge, Interactive, Visual Please, Robust, and Useful are all out of 5.  The 
+first two are weighted double the others.  These five feed into the "Execution" mark.
+
+The proposal was optional.  
+
+WidgetId:	swhaider
+Proposal:	x
+TechScore:	96%
+TechComments:	lots of libraries etc.  Feels very snappy.
+Challenge:	5
+Interactive:	5
+Visual Please:	5
+Robust:	5
+Useful:	5
+bwbAvg:	35
+bwbComments:	Great app!  Lists personal tasks as well as events picked from UW feed.
+TA1Comments:	
+TA2Comments:	
+Execution:	110%
+Mark:	99.63%

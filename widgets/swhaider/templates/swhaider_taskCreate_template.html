@@ -1,0 +1,135 @@
+
+<div id="swhaider_form" style="height:270px;">
+<div id="swhaider_forminside" style="  overflow-x: hidden; height:200px; " class="well">
+	<div class="row">
+		<label style= "color:white;" class='pull-left col-xs-3'>Task: </label> 
+		<textarea  placeholder = "Stuff to do" class='col-xs-9' style=" resize:none; " type="text" id="swhaider_task"/>
+	</div> 
+
+	<div class="row">
+    <div> <a swhaider-state="show" style ="white-space: normal;" class="glyphicon glyphicon-map-marker col-xs-3 btn btn-default" id="swhaider_mapbutton" type="submit" ></a> </div>
+		<input  placeholder = "Address - Type or Put a point on the map to auto-fill." class='col-xs-9' type="text" id="swhaider_location"/>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+//Unfortunately this had to be done this way. If javascript wasn't so stupid, this wouldn't be here...
+
+var geocoder;
+var map;
+var infowindow ;
+var marker;
+function initialize() {
+	infowindow = new google.maps.InfoWindow();
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(43.467949100,-80.541445899);
+  var mapOptions = {
+    zoom: 14,
+    center: latlng,
+    mapTypeId: 'roadmap'
+  }
+ 
+  map = new google.maps.Map(document.getElementById('swhaider_map_canvas'), mapOptions);
+  google.maps.event.addListenerOnce(map, 'idle', function(){
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(latlng);
+    });
+  // Place a  marker on the map
+ marker = new google.maps.Marker({
+    position: latlng,
+    map: map
+});
+
+
+  google.maps.event.addListener(map, 'click', function(event) {
+
+  marker.setMap(null);
+
+    // Place a marker on the map
+ marker = new google.maps.Marker({
+    position: event.latLng,
+    map: map
+});
+   codeLatLng();
+  
+  });
+
+
+}
+
+function codeLatLng() {
+  
+
+  var lat = marker.position.lat();
+  var lng = marker.position.lng();
+  var latlng = new google.maps.LatLng(lat, lng);
+
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+
+  	var result;
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[0]) {
+        
+      
+        
+       	result =  results[0].formatted_address;
+         
+
+
+
+      } else {
+        result =  marker.position;
+      }
+    } else {
+      result =  marker.position;
+    }
+
+    	$("#swhaider_location").val(result);
+
+  });
+
+}
+
+
+function loadScript() {
+
+
+if ($("#swhaider_mapscript").length==0){
+  var script = document.createElement('script');
+  script.id = "swhaider_mapscript"
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+      'callback=initialize';
+  $("#swhaider_background").append(script);
+}else{
+
+
+  setTimeout(initialize,2100);
+
+}
+}
+
+
+loadScript();
+
+
+    </script>
+
+<div  style="display:none" class="pull-right col-xs-10" id="swhaider_map_canvas"></div>
+	</div>
+
+
+	<div class="row">
+		<label style="color:white;" class='pull-left col-xs-3'>Date </label>
+		<input class='col-xs-9' type="text" id="swhaider_date"/>
+	</div>
+
+	<div class="row">
+		<label style="color:white;" class='pull-left col-xs-3'>Time </label> 	
+		 <input  class='col-xs-9' type="text" id="swhaider_time"/>
+		
+	</div>
+
+</div>
+<div>
+<a  class="center-block btn btn-default" id="swhaider_button" type="submit" >Add Task</a> 
+</div>
+</div>

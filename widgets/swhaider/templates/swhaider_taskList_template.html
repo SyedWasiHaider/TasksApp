@@ -1,0 +1,33 @@
+
+
+<div id= 'swhaider_taskList_div' style='height:270px; max-width: 100%;
+    overflow-x: hidden;'>	
+
+	{{#Tasks}}				
+  {{#relevant}}
+
+ 
+   <div id="swhaider_taskItem_div" style='decoration:none;' class='well row'> 
+   	<div style= "word-wrap:break-word; color:white;" class='col-xs-6'> {{short_desc}} </div> 
+   	<div id='swhaider_delete'   class='col-xs-3'> <a  style = "cursor: pointer; cursor: hand;" class='btn btn-default glyphicon glyphicon-trash'  >  </a>  
+    </div> 
+   	<div id='swhaider_view'    class='col-xs-3'> <a  style = "cursor: pointer; cursor: hand; " class='btn btn-default glyphicon glyphicon-info-sign'  >  </a>  
+    </div> 
+   
+
+      {{^overdue}}
+      <div style= "margin-top:10px;" class='col-xs-12 label label-default'> {{date}}</div> 
+       <div class='col-xs-12 label label-info'>{{time}}</div> 
+       {{/overdue}}
+
+        {{#overdue}}
+      <div style= "margin-top:10px;" class='col-xs-12 label label-warning'> {{date}}</div> 
+       <div class='col-xs-12 label label-danger'>{{time}}</div> 
+       {{/overdue}}
+
+
+   </div>
+    {{/relevant}}
+   {{/Tasks}}
+
+</div>
