@@ -1,15 +1,13 @@
 UWTasks
 
-"Live" (more like Zombie) verion can be found here: www.swhaider.net76.net/UWTasks
-
-[Description]
+# [Description]
 This was the last assignment of my User Interfaces course where I learned more about Javascript, JQuery, JSON, and using different APIs to create a rich and interactive app. 
 
-[Issues]
+# [Issues]
 - The app was meant to be used on another website with access to the user's name and database so once you navigate away from the page, none of your changes will persist.
 - Clicking on the heart symbol on any of the events does not bring up a prompt (even though the event is added to the list). It could have something to do with an ajax request not working anymore due to the above mentioned reason.
 
-[Main Code]
+# [Main Code]
 Some of these files were given to us by the professor so that we wouldn't spend too much time with setup. Majority of my work can be found in the widgets/swhaider directory
 
 
